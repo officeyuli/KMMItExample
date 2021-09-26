@@ -13,9 +13,11 @@ class CafeObservable: ObservableObject {
     @Published var cafeResponseItemList = [CafeResponseItem]()
 
     private let repository: DataRepository
-    
+    var koinApp :Koin_coreKoin
+
     init(repository: DataRepository) {
         self.repository = repository
+        self.koinApp = koin
     }
     
     func fetch() {
@@ -23,6 +25,7 @@ class CafeObservable: ObservableObject {
             if let result = result{
                 self.cafeResponseItemList = result
             }
+            koinApp.
         }
     }
 }

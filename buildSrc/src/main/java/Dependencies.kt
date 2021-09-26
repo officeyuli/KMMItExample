@@ -3,6 +3,7 @@ object Versions{
     val coroutines =  "1.5.0-native-mt"
     val serialization_version = "1.5.21"
     val koin = "3.0.2"
+    val multiplatformSettings = "0.7.7"
 
     object AndroidX {
         val core = "1.6.0"
@@ -38,6 +39,9 @@ object Develop{
     val koinAndroid = "io.insert-koin:koin-android:${Versions.koin}"
     val koinCore = "io.insert-koin:koin-core:${Versions.koin}"
     val koinTest = "io.insert-koin:koin-test:${Versions.koin}"
+    val multiplatformSettings = "com.russhwolf:multiplatform-settings:${Versions.multiplatformSettings}"
+    val multiplatformSettingsTest = "com.russhwolf:multiplatform-settings-test:${Versions.multiplatformSettings}"
+
 }
 
 object Classpath{

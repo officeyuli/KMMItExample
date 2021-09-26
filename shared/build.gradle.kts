@@ -29,6 +29,7 @@ kotlin {
                 implementation(Develop.Ktor.commonJson)
                 implementation(Develop.Ktor.commonLogging)
                 implementation(Develop.Ktor.commonSerialization)
+                implementation(Develop.multiplatformSettings)
                 implementation(Develop.Coroutines.common)
                 implementation(Develop.koinCore)
 
