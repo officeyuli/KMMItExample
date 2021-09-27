@@ -25,7 +25,6 @@ class CafeObservable: ObservableObject {
             if let result = result{
                 self.cafeResponseItemList = result
             }
-            koinApp.
         }
     }
 }

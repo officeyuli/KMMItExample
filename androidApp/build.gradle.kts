@@ -17,6 +17,8 @@ dependencies {
     implementation(Develop.AndroidX.lifecycle_runtime)
     implementation(Develop.AndroidX.lifecycle_viewmodel)
     implementation(Develop.AndroidX.lifecycle_viewmodel_extensions)
+    implementation(Develop.SqlDelight.runtimeJdk)
+    implementation(Develop.SqlDelight.driverAndroid)
 }
 
 android {

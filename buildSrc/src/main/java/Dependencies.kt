@@ -4,6 +4,7 @@ object Versions{
     val serialization_version = "1.5.21"
     val koin = "3.0.2"
     val multiplatformSettings = "0.7.7"
+    val sqlDelight = "1.5.0"
 
     object AndroidX {
         val core = "1.6.0"
@@ -35,6 +36,15 @@ object Develop{
         val lifecycle_runtime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.AndroidX.lifecycle}"
         val lifecycle_viewmodel = "androidx.lifecycle:lifecycle-viewmodel:${Versions.AndroidX.lifecycle}"
         val lifecycle_viewmodel_extensions = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.AndroidX.lifecycle}"
+    }
+
+    object SqlDelight {
+        val gradle = "com.squareup.sqldelight:gradle-plugin:${Versions.sqlDelight}"
+        val runtime = "com.squareup.sqldelight:runtime:${Versions.sqlDelight}"
+        val coroutinesExtensions = "com.squareup.sqldelight:coroutines-extensions:${Versions.sqlDelight}"
+        val runtimeJdk = "com.squareup.sqldelight:runtime-jvm:${Versions.sqlDelight}"
+        val driverIos = "com.squareup.sqldelight:native-driver:${Versions.sqlDelight}"
+        val driverAndroid = "com.squareup.sqldelight:android-driver:${Versions.sqlDelight}"
     }
     val koinAndroid = "io.insert-koin:koin-android:${Versions.koin}"
     val koinCore = "io.insert-koin:koin-core:${Versions.koin}"
