@@ -3,6 +3,7 @@ package com.officeyuli.kmmitexample.android
 import android.app.Application
 import android.content.Context
 import android.util.Log
+import com.officeyuli.kmmitexample.DataRepository
 import com.officeyuli.kmmitexample.initKoin
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -14,9 +15,11 @@ class CafeApplication : Application() {
             module{
                 single<Context> {this@CafeApplication}
                 viewModel { MainViewModel() }
+                single{ DataRepository()}
                 single{
                     { Log.e("CafeAndroidApp", "init Koin! " )}
                 }
+
             }
         )
     }

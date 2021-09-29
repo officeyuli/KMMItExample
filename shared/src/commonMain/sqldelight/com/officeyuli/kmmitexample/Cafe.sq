@@ -7,5 +7,5 @@ CREATE TABLE CAFE (
 insertCafe:
 INSERT INTO CAFE(id, name, address) VALUES (?,?,?);
 
-getAll:
+getAll:--
 SELECT * FROM CAFE;

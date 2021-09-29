@@ -1,30 +1,23 @@
 package com.officeyuli.kmmitexample
 
+import com.officeyuli.kmmforitframwork.ktor.response.CafeResponseItem
 import com.officeyuli.kmmitexample.ktor.CafeApi
-import com.officeyuli.kmmitexample.ktor.CafeApiImpl
+import kotlinx.coroutines.flow.Flow
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 
-class DataRepository {
+class DataRepository :KoinComponent {
     companion object {
         val tag = DataRepository::class.simpleName
     }
 
-    private val ktorApi: CafeApi by lazy { CafeApiImpl() }
+    private val ktorApi: CafeApi by inject()
+    private val dbHelper: DatabaseHelper by inject()
 
     suspend fun fetchCafesFromNetwork(cityName: String) =ktorApi.fetchCafeFromApi(cityName)
 
-//    suspend fun fetchCafesFromNetwork(cityName: String): DataState {
-//        return try {
-//            val cafeResponseItemList =  ktorApi.fetchCafeFromApi(cityName)
-//            if(cafeResponseItemList.isEmpty()){
-//                DataState(empty = true)
-//            } else {
-//                DataState(cafeResponseItemList)
-//            }
-//        } catch (e: Exception) {
-//            println(e.message)
-//            DataState(exception = "Can't fetch data from Network")
-//        }
-//
-//    }
-
+    fun getCafeFromDb(): Flow<List<CAFE>> = dbHelper.selectAllItems()
+    suspend fun insertCafeToDB(cafeResponse: List<CafeResponseItem>) {
+        dbHelper.insertCafeList(cafeResponse)
+    }
 }

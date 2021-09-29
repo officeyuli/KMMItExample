@@ -14,10 +14,6 @@ import com.officeyuli.kmmitexample.android.view.CafeAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-fun greet(): String {
-    return Greeting().greeting()
-}
-
 class MainActivity : AppCompatActivity() {
     private val viewModel: MainViewModel by viewModel()
     private val adapter : CafeAdapter by lazy { CafeAdapter() }
@@ -28,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         viewModel.fetchCafeList("taipei")
+        viewModel.fetchCafeFromDB()
         viewModel.cafeListLiveData.observe(this, Observer {
             adapter.cafeList = it
             adapter.notifyDataSetChanged()

@@ -2,6 +2,7 @@ package com.officeyuli.kmmitexample
 
 import com.officeyuli.kmmitexample.ktor.CafeApi
 import com.officeyuli.kmmitexample.ktor.CafeApiImpl
+import kotlinx.coroutines.Dispatchers
 import org.koin.core.KoinApplication
 import org.koin.core.context.startKoin
 import org.koin.core.module.Module
@@ -12,10 +13,11 @@ import org.koin.dsl.module
 fun initKoin(appModule: Module) : KoinApplication {
     val koinApplication = startKoin {
         modules(appModule,
-            coreModule
+            coreModule,
+            platformModule
         )
     }
-    val koin = koinApplication.koin
+//    val koin = koinApplication.koin
 //    val doOnStartup =  koin.get<() -> Unit>()
 //    doOnStartup.invoke()
 
@@ -25,7 +27,16 @@ private val coreModule = module{
     single<CafeApi>{
         CafeApiImpl()
     }
+    single {
+        DatabaseHelper(
+            get(),
+            Dispatchers.Default
+        )
+    }
 }
 internal inline fun <reified T> Scope.getWith(vararg params: Any?): T {
     return get(parameters = { parametersOf(*params) })
 }
+
+expect val platformModule: Module
+
